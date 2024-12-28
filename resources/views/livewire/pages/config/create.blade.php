@@ -10,16 +10,17 @@ $getConfig = function(){
     $config = Configuration::first();
     if($config) {
         $this->form->fill($config);
+        $this->id = $config->id;
     }
     return $config;
 };
 
 form(UpdateConfigForm::class);
-state(['config' => $getConfig, 'show' => false]);
+state(['config' => $getConfig, 'show' => false, 'id' => null]);
 on(['config-saved' => $getConfig]);
 
 $saveConfig = function () {
-    $this->form->update();
+    $this->form->update($this->id);
     $this->dispatch('connection-saved');
     $this->show = false;
     session()->flash('status', "Configuration updated");
