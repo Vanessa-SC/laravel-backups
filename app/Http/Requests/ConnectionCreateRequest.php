@@ -28,6 +28,8 @@ class ConnectionCreateRequest extends FormRequest
             'db_user' => 'required',
             'db_password' => 'required',
             'db_name' => 'required',
+            'db_port' => 'number|nullable',
+            'cron_expression' => "required|string|regex:'/^(\*|\d+|\d+,\d+|\d+-\d+|\*\/\d+)(\s+(\*|\d+|\d+,\d+|\d+-\d+|\*\/\d+)){4,5}$/'",
         ];
     }
 }

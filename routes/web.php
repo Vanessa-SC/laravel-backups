@@ -14,6 +14,7 @@ Route::view('profile', 'profile')
     ->name('profile');
 
 Route::resource('connections', ConnectionsController::class)
+    ->middleware(['auth', 'verified'])
     ->only(['index', 'store', 'update']);
 
 require __DIR__ . '/auth.php';

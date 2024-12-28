@@ -29,7 +29,7 @@ class BackupRemoteDatabases extends Command
     public function handle()
     {
 
-        $connections = Connection::orderByDesc('id')->get();
+        $connections = Connection::all();
         $config = Configuration::first();
         if ($config) {
 

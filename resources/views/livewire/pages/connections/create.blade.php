@@ -90,6 +90,17 @@ $closeAlert = function () {
                 <x-input-error :messages="$errors->get('form.db_host')" class="mt-2" />
             </div>
 
+            <!-- Database's port -->
+            <div class="basis-full lg:basis-1/2 md:basis-1/4 px-2">
+                <x-input-label for="db_port" :value="__('DB Port')" />
+                <x-text-input wire:model="form.db_port" id="db_port" class="block mt-1 w-full" type="number"
+                    name="db_port"
+                    required autofocus
+                    autocomplete="db_port"
+                    placeholder="Remote IP address or domain" />
+                <x-input-error :messages="$errors->get('form.db_port')" class="mt-2" />
+            </div>
+
             <!-- Database's user -->
             <div class="basis-full lg:basis-1/2 md:basis-1/4 px-2">
                 <x-input-label for="db_user" :value="__('DB User')" />
@@ -118,6 +129,17 @@ $closeAlert = function () {
                     autocomplete="db_name"
                     required autofocus />
                 <x-input-error :messages="$errors->get('form.db_name')" class="mt-2" />
+            </div>
+
+            <!-- Cron expression -->
+            <div class="basis-full lg:basis-1/2 md:basis-1/4 px-2">
+                <x-input-label for="cron_expression" :value="__('Cron expression')" />
+                <x-text-input wire:model="form.cron_expression" id="cron_expression" class="block mt-1 w-full" type="text"
+                    name="cron_expression"
+                    placeholder="Cron expression"
+                    autocomplete="cron_expression"
+                    required autofocus />
+                <x-input-error :messages="$errors->get('form.cron_expression')" class="mt-2" />
             </div>
 
         </div>

@@ -23,11 +23,13 @@ class ConnectionUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'db_host' => 'required',
-            'db_user' => 'required',
-            'db_password' => 'required',
-            'db_name' => 'required',
+            'name' => 'required|string|max:255',
+            'db_host' => 'required|string|max:255',
+            'db_user' => 'required|string|max:255',
+            'db_password' => 'required|string|max:255',
+            'db_name' => 'required|string|max:255',
+            'db_port' => 'number|nullable',
+            'cron_expression' => "required|string|regex:'/^(\*|\d+|\d+,\d+|\d+-\d+|\*\/\d+)(\s+(\*|\d+|\d+,\d+|\d+-\d+|\*\/\d+)){4,5}$/'",
         ];
     }
 }

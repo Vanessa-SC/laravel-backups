@@ -24,6 +24,12 @@ class CreateConnectionForm extends Form
     #[Validate('required|string')]
     public string $db_password = '';
     
+    #[Validate('required|integer')]
+    public string $db_port = '';
+
+    // #[Validate(required|string|regex:'/^(\*|\d+|\d+,\d+|\d+-\d+|\*\/\d+)(\s+(\*|\d+|\d+,\d+|\d+-\d+|\*\/\d+)){4,5}$/'")]
+    // public string $cron_expression = '*';
+    
 
     public function store(){
         $this->validate();

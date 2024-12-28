@@ -12,5 +12,7 @@ class Connection extends Model
         'db_user',
         'db_password',
         'db_name',
+        'db_port',
+        'crontime',
     ];
 }
