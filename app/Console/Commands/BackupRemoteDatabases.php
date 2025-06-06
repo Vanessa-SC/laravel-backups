@@ -66,7 +66,7 @@ class BackupRemoteDatabases extends Command
                 $comando .= " > {$dirPath}/{$conn['db_name']}_" . date('YmdHi') . ".sql";
                 $comando .= $config->file_extension ? $config->file_extension : '';
                 $comando .= " 2> $mainDir/$folderName/error.log";
-                Log::info($comando);
+                // Log::info($comando);
                 exec("$comando 2> $mainDir/error.log");
             }
 
